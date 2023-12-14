@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Towards General-Purpose Robots via Foundation Models:
+        A Survey and Meta-Analysis">
+  <meta name="keywords" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Towards General-Purpose Robots via Foundation Models: A Survey and Meta-Analysis</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <!-- <link rel="icon" href="./static/images/favicon.svg"> -->
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <!-- <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+      <a class="navbar-item" href="https://keunhong.com">
+      <span class="icon">
+          <i class="fas fa-home"></i>
+      </span>
+      </a>
+
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          More Research
+        </a>
+        <div class="navbar-dropdown">
+          <a class="navbar-item" href="https://hypernerf.github.io">
+            HyperNeRF
+          </a>
+          <a class="navbar-item" href="https://nerfies.github.io">
+            Nerfies
+          </a>
+          <a class="navbar-item" href="https://latentfusion.github.io">
+            LatentFusion
+          </a>
+          <a class="navbar-item" href="https://photoshape.github.io">
+            PhotoShape
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div> -->
+</nav>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title"> Towards General-Purpose Robots via Foundation Models: A Survey and Meta-Analysis</h1>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">
+                  <a href="" target="_blank">Yafei Hu</a><sup>*1</sup>,</span>
+              <span class="author-block">
+                  <a href="" target="_blank"> Quanting Xie</a><sup>*1</sup>,</span>
+              <span class="author-block">
+                  <a href="" target="_blank"> Vidhi Jain </a><sup>*1</sup>,
+              </span>
+              <span class="author-block">
+                  <a href="" target="_blank"> Jonathan Francis </a><sup>1,2</sup>,
+              </span>
+              <span class="author-block">
+                  <a href="" target="_blank"> Jay Patrikar </a><sup>1</sup>,
+              </span>
+              <span class="author-block">
+                  <a href="" target="_blank"> Nikhil Keetha </a><sup>1</sup>,
+              </span>
+              <span class="author-block">
+                  <a href="" target="_blank"> Seungchan Kim </a><sup>1</sup>,
+              </span>
+              <span class="author-block">
+                <a href="" target="_blank"> Yaqi Xie </a><sup>1</sup>,
+              </span>
+              <span class="author-block">
+                  <a href="" target="_blank">Tianyi Zhang </a><sup>1</sup>,
+              </span>
+              <span class="author-block">
+                  <a href="" target="_blank"> Yu-Quan Chong  </a><sup>1</sup>,
+              </span>
+              <span class="author-block">
+                <a href="" target="_blank"> Chen Wang  </a><sup>3</sup>,
+            </span>
+              <span class="author-block">
+                  <a href="" target="_blank">Katia Sycara</a><sup>1</sup>
+              </span>
+              <span class="author-block">
+                <a href="" target="_blank">Matthew Johnson-Roberson</a><sup>1</sup>
+            </span>
+            <span class="author-block">
+                <a href="" target="_blank">Dhruv Batra</a><sup>4,5</sup>
+            </span>
+            <span class="author-block">
+                <a href="" target="_blank">Xiaolong Wang</a><sup>6</sup>
+            </span>
+            <span class="author-block">
+                <a href="" target="_blank">Sebastian Scherer</a><sup>1</sup>
+            </span>
+            <span class="author-block">
+                <a href="" target="_blank">Zsolt Kira</a><sup>4</sup>
+            </span>
+            <span class="author-block">
+                <a href="" target="_blank">Yonatan Bisk</a><sup>1,5</sup>
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+              <span class="author-block"><sup>1</sup>Carnegie Mellon University,</span>
+              <span class="author-block"><sup>2</sup>Bosch Center for AI, </span>
+              <span class="author-block"><sup>3</sup>SAIR Lab</span>
+              <span class="author-block"><sup>4</sup>Georgia Tech</span>
+              <span class="author-block"><sup>5</sup>FAIR at Meta</span>
+              <span class="author-block"><sup>6</sup>UC San Diego</span>
+              <span class="author-block"><sup>7</sup>Google DeepMind</span>
+              <p style="margin-top: -0.25rem" />
+              <span class="author-block" style="font-size: 0.7em; font-style: italic;"><sup>*</sup>Equal contribution</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- paper list Link. -->
+              <span class="link-block">
+                <a href="https://github.com/JeffreyYH/robotics-fm-survey"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Full Paper List</span>
+                  </a>
+              </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- <section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <video id="teaser" autoplay muted loop playsinline height="100%">
+        <source src="https://homes.cs.washington.edu/~kpar/nerfies/videos/teaser.mp4"
+                type="video/mp4">
+      </video>
+      <h2 class="subtitle has-text-centered">
+        <span class="dnerf">Nerfies</span> turns selfie videos from your phone into
+        free-viewpoint
+        portraits.
+      </h2>
+    </div>
+  </div>
+</section>
+
+
+<section class="hero is-light is-small">
+  <div class="hero-body">
+    <div class="container">
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item item-steve">
+          <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
+            <source src="https://homes.cs.washington.edu/~kpar/nerfies/videos/steve.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-chair-tp">
+          <video poster="" id="chair-tp" autoplay controls muted loop playsinline height="100%">
+            <source src="https://homes.cs.washington.edu/~kpar/nerfies/videos/chair-tp.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-shiba">
+          <video poster="" id="shiba" autoplay controls muted loop playsinline height="100%">
+            <source src="https://homes.cs.washington.edu/~kpar/nerfies/videos/shiba.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-fullbody">
+          <video poster="" id="fullbody" autoplay controls muted loop playsinline height="100%">
+            <source src="https://homes.cs.washington.edu/~kpar/nerfies/videos/fullbody.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-blueshirt">
+          <video poster="" id="blueshirt" autoplay controls muted loop playsinline height="100%">
+            <source src="https://homes.cs.washington.edu/~kpar/nerfies/videos/blueshirt.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-mask">
+          <video poster="" id="mask" autoplay controls muted loop playsinline height="100%">
+            <source src="https://homes.cs.washington.edu/~kpar/nerfies/videos/mask.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-coffee">
+          <video poster="" id="coffee" autoplay controls muted loop playsinline height="100%">
+            <source src="https://homes.cs.washington.edu/~kpar/nerfies/videos/coffee.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-toby">
+          <video poster="" id="toby" autoplay controls muted loop playsinline height="100%">
+            <source src="https://homes.cs.washington.edu/~kpar/nerfies/videos/toby2.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+  </div>
+</section> -->
+
+<!-- teaser fig section -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <div class="columns is-centered has-text-centered">
+            <img src="./resources/teaser.png" style="width: 80.0%;"></img>
+          </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+            Building general-purpose robots that can operate seamlessly, in any environment, with any object, and utilizing various
+            skills to complete diverse tasks has been a long-standing goal in Artificial Intelligence. Unfortunately, however, most existing
+            robotic systems have been constrained—having been designed for specific tasks, trained on specific datasets, and deployed
+            within specific environments. These systems usually require extensively-labeled data, rely on task-specific models, have
+            numerous generalization issues when deployed in real-world scenarios, and struggle to remain robust to distribution shifts.
+            Motivated by the impressive open-set performance and content generation capabilities of web-scale, large-capacity pre-trained
+            models (i.e., foundation models) in research fields such as Natural Language Processing (NLP) and Computer Vision (CV),
+            we devote this survey to exploring (i) how these existing foundation models from NLP and CV can be applied to the field of
+            robotics, and also exploring (ii) what a robotics-specific foundation model would look like. We begin by providing an overview
+            of what constitutes a conventional robotic system and the fundamental barriers to making it universally applicable. Next, we
+            establish a taxonomy to discuss current work exploring ways to leverage existing foundation models for robotics and develop
+            new ones catered to robotics. Finally, we discuss key challenges and promising future directions in using foundation models
+            for enabling general-purpose robotic systems. We encourage readers to view our “living” GitHub repository2 of resources,
+            including papers reviewed in this survey as well as related projects and repositories for developing foundation models for
+            robotics: https://robotics-fm-survey.github.io/.
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+</section>
+
+
+
+
+
+<!-- Bibtex section -->
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@article{huqiu2023geff,
+  author    = {Yafei Hu and Quanting Xie and Vidhi Jain and Jonathan Francis and Jay Patrikar and Nikhil Keetha 
+                and Seungchan Kim and Yaqi Xie and Tianyi Zhang and Yu-Quan Chong and Chen Wang and 
+                Katia Sycara and Matthew Johnson-Roberson and Dhruv Batra and Xiaolong Wang and
+                Sebastian Scherer and Zsolt Kira and Yonatan Bisk},
+  title     = {Towards General-Purpose Robots via Foundation Models: A Survey and Meta-Analysis},
+  booktitle = {arXiv preprint},
+  year      = {2023},
+}</code></pre>
+  </div>
+</section>
+
+
+
+<footer class="footer">
+  <div class="container">
+    <!-- <div class="content has-text-centered">
+      <a class="icon-link"
+         href="https://homes.cs.washington.edu/~kpar/nerfies/videos/nerfies_paper.pdf">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+      <a class="icon-link" href="https://github.com/keunhong" class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a>
+    </div> -->
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <!-- <p>
+            This website is licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p> -->
+          <p align="center" >
+          Page template from <a href="https://nerfies.github.io/"><span class="dnerf">Nerfies</span></a> 
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
+
+
+<!-- https://github.com/human2robot/human2robot.github.io -->
